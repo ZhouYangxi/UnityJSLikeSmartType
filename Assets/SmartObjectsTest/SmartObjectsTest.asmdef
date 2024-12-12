@@ -1,0 +1,6 @@
+{
+    "name": "SmartObjectsTest",
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ]
+}
