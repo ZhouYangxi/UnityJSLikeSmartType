@@ -43,6 +43,11 @@ namespace OrbitGames{
             return HashCode.Combine((int)currentType, numberData, otherData);
         }
 
+        public bool IsNumberNaN()
+        {
+            return double.IsNaN((double)this);
+        }
+
         #region SET FROM
 
         public static implicit operator C3SmartObject(double value)
@@ -85,7 +90,7 @@ namespace OrbitGames{
             {
                 Type.Number => value.numberData,
                 Type.Bool => value.numberData,
-                Type.String => double.Parse((string)value.otherData),
+                Type.String => double.TryParse((string)value.otherData, out var r) ? r : double.NaN,
                 _ => double.NaN
             };
         }
